@@ -1,0 +1,111 @@
+/* article, aside{
+    display: inline-block;
+    vertical-align: top;
+    text-align: justify;
+    }
+section h1, footer h1, nav a{
+    font-family: Dayrom, serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    }
+article{
+    width: 625px;
+    margin-right: 15px;
+    }
+ article h2{
+    position: relative;
+    background-color: #3c4f58;
+    text-align: center;
+    padding: 150px;
+    margin: 0.5em;
+    color: white;
+    border: 1px solid black;
+    text-align: justify;
+    width: inherit;
+    width: 80vmax;
+    }
+aside
+    {
+        position: relative;
+        background-color: #39585c;
+        text-align: center;
+        padding: 100px;
+        margin: 0.5em;
+        color: white;
+        font-size: 0.9em;
+        margin-left: 50px;
+        margin-right: 100px;
+    }
+
+#fleche_bulle{
+    position: absolute;
+    top: 100px;
+    left: -12px;
+    }
+#photo_zozor{
+    text-align: center;
+    }
+#photo_zozor img{
+    border: 1px solid #181818;
+    }
+aside img{
+    margin-right: 5px;
+    }
+.encadrer{
+    border: 5px solid DarkBlue ;
+}
+#content{
+    padding: 4px;
+    width: 1000px;      
+}
+
+.directeur{
+    border: 5px ;
+    margin-left: 500px;
+    margin-bottom: 160px;
+    margin-top: 50px;
+    height: 250px;
+    width: 300px;
+  }
+  aside
+{
+position: relative;
+width: 235px;
+background-color: #706b64;
+box-shadow: 0px 2px 5px #1c1a19;
+border-radius: 5px;
+padding: 10px;
+color: white;
+font-size: 0.9em;
+}
+
+  nav {
+    float: left;
+    width: 10px;
+    border: 1px ;
+    }
+  section{
+    margin-left: 0px;
+    border: 1px;
+    }
+article, aside{
+display: inline-block;
+vertical-align: top;
+text-align: justify;
+}
+
+article{
+width: 625px;
+margin-right: 100px;
+}
+aside{
+position: relative;
+width: 235px;
+box-shadow: 0px 2px 5px #1c1a19;
+border-radius: 5px;
+padding: 10px;
+color: white;
+font-size: 0.9em;
+margin-left: 600px;
+margin-bottom: 800%;
+} */
