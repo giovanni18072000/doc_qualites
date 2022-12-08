@@ -1,6 +1,7 @@
 import { PureComponent } from 'react';
 import Menu from '../navigation/Menu';
 import Footer from '../navigation/Footer';
+// import MaterialTable from "material-table" 
 
 class ListeExterne extends PureComponent {
     
@@ -10,13 +11,12 @@ class ListeExterne extends PureComponent {
         <Menu />
         <div class="container">
         <h2>We Offer Some Of The Best Business Growth Services In Externe</h2>
-            
+        
         </div>
         <Footer /> 
     </div> 
                 )
-            }
-                      
+            }       
         }
                
 export default ListeExterne

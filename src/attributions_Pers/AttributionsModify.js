@@ -42,7 +42,7 @@ class AttributionsForm extends PureComponent {
     }
    componentWillReceiveProps(nextprops) {
         //let bool = false
-         console.log(nextprops.information_attributions)
+         //console.log(nextprops.information_attributions)
         //if (nextprops.information_user.admin === 1) { bool = true }
         // console.log(nextprops.information_user.admin)
         this.setState({
@@ -253,7 +253,7 @@ class AttributionsForm extends PureComponent {
                         icon: response.icon,
                     })
                     if (response.form_error === true) {
-                        console.log('remplir correctement le formulaire')
+                        //console.log('remplir correctement le formulaire')
                     }
                     else {
                         this.close_dialog_form()

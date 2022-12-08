@@ -127,62 +127,82 @@ class Attribution extends PureComponent {
   //   },
   // ]
 
-  columns = [
-    {
-      title:"Numero",
-      field: "numero"
-    },
-    {
-      title:"Nom",
-      field: "nom"
-    },
+
+
+  // columns = [
+  //   // {
+  //   //   title:"Numero",
+  //   //   field: "numero",
+  //   // },
+  //   // {
+  //   //   title:"Nom",
+  //   //   field: "nom",
+  //   // },
   
-    // {
-    //   title:"Prenom",
-    //   field: prenomAttr
-    // },
-    // {
-    //   title:"Date",
-    //   field: dateAttr
-    // },
-    // {
-    //   title:"Poste",
-    //   field: posteAttr
-    // },
-    // {
-    //   title:"Missions",
-    //   field: missionsAttr
-    // },
-    // {
-    //   title:"Activites",
-    //   field: activiteAttr
-    // },
-    // {
-    //   title:"Superieurs",
-    //   field: superieurAttr
-    // },
-    // {
-    //   title:"Diplomes",
-    //   field: diplomeAttr
-    // },
-    // {
-    //   title:"Autre Competence",
-    //   field: autreCompAttr
-    // },
-  ]
+  //   // {
+  //   //   title:"Prenom",
+  //   //   field: prenomAttr
+  //   // },
+  //   // {
+  //   //   title:"Date",
+  //   //   field: dateAttr
+  //   // },
+  //   // {
+  //   //   title:"Poste",
+  //   //   field: posteAttr
+  //   // },
+  //   // {
+  //   //   title:"Missions",
+  //   //   field: missionsAttr
+  //   // },
+  //   // {
+  //   //   title:"Activites",
+  //   //   field: activiteAttr
+  //   // },
+  //   // {
+  //   //   title:"Superieurs",
+  //   //   field: superieurAttr
+  //   // },
+  //   // {
+  //   //   title:"Diplomes",
+  //   //   field: diplomeAttr
+  //   // },
+  //   // {
+  //   //   title:"Autre Competence",
+  //   //   field: autreCompAttr
+  //   // },
+  // ]
 
 
 
 
    downloadPdf = () => {
     const doc = new jsPDF()
-    doc.text("TABLEAU DE BOARD EN PDF", 20, 10)
+    doc.text("ATTRIBUTION EN PDF", 20, 10)
     doc.autoTable({
+      html:"#table",
       theme: "grid",
+    //   columnStyles: {
+    //     0: {halign: 'left', cellWidth: 10,},
+    //     1: {halign: 'left', cellWidth: 20,},
+    //     2: {halign: 'left', cellWidth: 20,},
+    //     3: {halign: 'left', cellWidth: 20,},
+    //     4: {halign: 'left', cellWidth: 20,},
+    //     5: {halign: 'left', cellWidth: 20,},
+    //     6: {halign: 'left', cellWidth: 20,},
+    //     7: {halign: 'left', cellWidth: 20,},
+    //     8: {halign: 'left', cellWidth: 20,},
+    //     9: {halign: 'left', cellWidth: 20,},
+    //     10: {halign: 'left', cellWidth: 0,},
+    // },
+    // split overflowing columns into pages
+    horizontalPageBreak: true,
+    // repeat this column in split pages
+    horizontalPageBreakRepeat: 0,
         //columns: columns.map(col => ({ ...col, dataKey: col.field })),
       // body: allAttribu
-      //   head : [['Numero', 'Nom', 'Prenom', 'Date', 'Poste', 'Missions', 'Activites', 'Superieurs', 'Diplomes', 'Autre Competence']],
-      //  body: [[]]
+        //head : [['Numero', 'Nom', 'Prenom', 'Date', 'Poste', 'Missions', 'Activites', 'Superieurs', 'Diplomes', 'Autre Competence']],
+        //body: [[]]
     })
     doc.save('attribution.pdf')
   }
@@ -207,11 +227,11 @@ class Attribution extends PureComponent {
                         name_of_btn="Attribution en PDF"
                     /><br/><br/>
                 </center>
-            <table className="table table-bordered"> 
+            <table className="table table-bordered" id='table'> 
                         <thead>
                         <tr>
                             <th hidden >idAttr</th>
-                            <th>Numero Matricule</th>
+                            <th>Matricule</th>
                             <th>Nom</th>
                             <th>Prenom</th>
                             <th>Date entrée APMF</th>

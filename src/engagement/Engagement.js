@@ -10,6 +10,7 @@ import Button from '../button/button'
 class Responsable extends PureComponent {
     
     generatePDF = ()=>{
+        //console.log("engagement.pdf")
         var doc = new jsPDF("p","pt","a4");
         doc.html(document.querySelector("#content"),{
             callback:function(pdf){
@@ -52,7 +53,7 @@ class Responsable extends PureComponent {
                         <h3 style={{color:'DarkBlue'}}><em><u> La Direction Générale</u></em></h3>
                     </center>
             </div>
-                <Button color='green'  function={this.generatePDF} name_of_btn="Engagement en PDF" icon={<PrintIcon />} /><br/><br/>
+                <Button  function={this.generatePDF} name_of_btn="Engagement en PDF" icon={<PrintIcon />}/><br/><br/>
         <Footer />
     </div> 
                 )

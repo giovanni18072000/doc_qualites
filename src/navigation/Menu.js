@@ -49,6 +49,8 @@ class Menu extends Component {
         <div class="text-center navbar-brand-wrapper  d-flex align-items-center justify-content-center ">
           {/* <a class="navbar-brand brand-logo mr-1" href="#"><img src="images/boat.Png" class="mr-1" alt="logo"/></a> </div> */}
           <a class="navbar-brand logo-image" href="#"><img src="../../images/logo2.PNG" alt='logo' style={{color:'black',height:'40px',width:'50px'}}/></a> </div>
+        
+        
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">

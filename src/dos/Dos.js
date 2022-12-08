@@ -3,6 +3,8 @@ import Menu from '../navigation/Menu';
 import Footer from '../navigation/Footer'; 
 import '../dos/animate.css'
 import {jsPDF} from 'jspdf';
+import PrintIcon from '@material-ui/icons/Print'
+import Button from '../button/button'
 
 class Dos extends PureComponent {
 
@@ -655,7 +657,7 @@ render() {
                             La réalisation de cette vision passe inévitablement par la bonne gouvernance et l’engagement de tout un chacun.<br/>
                         </p>
         </div>
-            <button onClick={this.generatePDF} class="btn btn-primary"> Dos PDF</button> <br/><br/>
+            <Button   function={this.generatePDF} name_of_btn="Dos PDF" icon={<PrintIcon />} /><br/><br/>
         <Footer />
     </div> 
         )
