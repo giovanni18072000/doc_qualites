@@ -20,6 +20,8 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
  import 'jspdf-autotable'
  import ReactPaginate from 'react-paginate';
  import '../navigation/navige.css'
+ import $ from 'jquery';
+//  import Chart from "./Chart.js";
 
 class Acceuil extends PureComponent {
 
@@ -44,18 +46,58 @@ class Acceuil extends PureComponent {
     opentableauform:false,
     searchtable:'',
     total: 0 ,
-        offset: 0,
-        listealltableau: [],
-        perPage: 5,
-        currentPage: 0,
+    offset: 0,
+    listealltableau: [],
+    perPage: 5,
+    currentPage: 0,
+
+    // this.handlePageClick = this
+    //         .handlePageClick
+    //         .bind(this);
   }
+
+
+  allTableau = async () => {
+  let axiosresponse = await axios.get('http://localhost:3005/all_tableau')
+  let listealltableau = await axiosresponse.data;
+  //console.log(listealltableau +"listealltableau")
+  // then(res => {
+
+    //const data = res.data;
+     const slice = listealltableau.slice(this.state.offset ,this.state.offset+ this.state.perPage)
+
+    // console.log(slice +"slice")
+
+    const postData = slice.map(pd => <React.Fragment>
+        <p>{pd.title}</p>
+        <img src={pd.thumbnailUrl} alt=""/>
+     </React.Fragment>)
+     console.log(postData +"postData")
+    // const data = res.data;
+    // const slice = data.slice(offset, offset + perPage);
+// )
+// });
   
+  if(listealltableau){
+    this.setState({
+      // pageCount: Math.ceil(listealltableau.length / this.state.perPage),
+      // postData,
+      listealltableau,
+      searchtable:'',
+      pageCount: Math.ceil(listealltableau.length / this.state.perPage),
+      postData
+       //setPageCount(Math.ceil(data.length / perPage));
+    })
+  }
+ // console.log(postData +"postData")
+  }
+
   handlePageClick = (e) => {
     const selectedPage = e.selected;
     const offset = selectedPage * this.state.perPage;
 
-console.log(offset +"offset")
-console.log(selectedPage +"selectedPage")
+    console.log(offset +"offset")
+    console.log(selectedPage +"selectedPage")
 
     this.setState({
         currentPage: selectedPage,
@@ -65,41 +107,12 @@ console.log(selectedPage +"selectedPage")
     });
 };
 
+//all_base_de_donnee
+componentDidMount(){
+  let donnee = {searchtable: this.state.searchtable}
+  this.allTableau(donnee);
+}
 
-  //all_base_de_donnee
-  componentDidMount(){
-    let donnee = {searchtable: this.state.searchtable}
-    this.allTableau(donnee);
-  }
-  
-  allTableau = async () => {
-  let axiosresponse = await axios.get('http://localhost:3005/all_tableau')
-  let listealltableau = await axiosresponse.data;
-  console.log(listealltableau +"listealltableau")
-  // then(res => {
-
-    //const data = res.data;
-    const slice = listealltableau.slice(this.state.offset + this.state.perPage)
-    console.log(slice +"slice")
-    const postData = slice.map(pd => <React.Fragment>
-        <p>{pd.title}</p>
-        <img src={pd.thumbnailUrl} alt=""/>
-     </React.Fragment>)
-     console.log(postData +"postData")
-// )
-// });
-  
-  if(listealltableau){
-    this.setState({
-      pageCount: Math.ceil(listealltableau.length / this.state.perPage),
-      postData,
-      listealltableau,
-      searchtable:'',
-      // pageCount: Math.ceil(listealltableau.length / this.state.perPage),
-      //  postData
-    })
-  }
-  }
   addtableau = () => {
     if (Utilisateur.admin === true) {
         this.setState({
@@ -184,7 +197,7 @@ this.setState({
                   <TextField name="search" value={this.state.searchtable} onChange={this.searchtabledb} placeholder='Votre recherche soit Pilote
                      pour trouver la pourcentage etat avancement' id="search" label="Information de tableau de bord" fullWidth={true} /><br/><br/>
                 <div class="table-responsive pt-3">
-            <table className="table table-bordered">
+            <table className="table table-bordered" id ="myTable">
                         <thead>
                         <tr>
                             <th hidden >idTab</th>
@@ -295,6 +308,12 @@ this.setState({
           </div>
           </div>
           </div>
+
+          {/* <Chart
+        // labels={data.length === 0 ? ["pink"] : data[0].labels}
+        // data1={data.length === 0 ? [0, 0, 0, 0, 0, 0] : data[0].data[0].values}
+        // data2={data.length === 0 ? [0, 0, 0, 0, 0, 0] : data[0].data[1].values}
+      /> */}
       </div>               
          ) 
         }else {
@@ -324,9 +343,9 @@ export default Acceuil
 //             perPage: 10,
 //             currentPage: 0
 //         };
-//         this.handlePageClick = this
-//             .handlePageClick
-//             .bind(this);
+        // this.handlePageClick = this
+        //     .handlePageClick
+        //     .bind(this);
 //     }
 //     receivedData() {
 //         axios

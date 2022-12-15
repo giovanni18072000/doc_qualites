@@ -179,12 +179,12 @@ class Menu extends Component {
                       <span class="menu-title">Utilisateur</span>
                   </NavLink>
                 </li>
-                <li class="nav-item">
+                {/* <li class="nav-item">
                   <NavLink className="nav-link" to="/discussion">
                     <i class="icon-columns menu-icon"></i>
                       <span class="menu-title">Discussion</span>
                   </NavLink>
-                </li>
+                </li> */}
                     <Button function={() => this.logout()}  name_of_btn="deconnexion">deconnexion</Button>                  
             </ul>
         </div>

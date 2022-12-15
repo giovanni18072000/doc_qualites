@@ -52,7 +52,6 @@ export class App extends Component {
   render() {
     if (Utilisateur.loading) {
       return (
-
         <div className="app">
           <div className="container">
             Chargement ...
